@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Civil Service Exam Practice Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+        .question-container {
+            margin-bottom: 20px;
+        }
+        .question {
+            font-weight: bold;
+        }
+        .answer {
+            margin: 5px 0;
+        }
+        .answer input {
+            margin-right: 10px;
+        }
+        .correct {
+            background-color: #c8e6c9;
+        }
+        .incorrect {
+            background-color: #ffcdd2;
+        }
+        .submit-btn {
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+        #score {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Civil Service Exam Practice Test</h1>
+    <p><strong>Created by:</strong> CSE Learning Essentials</p>
+    <p><strong>Direction:</strong> Each item in this section consists of statements followed by several possible conclusions. Determine the best conclusion that can be logically made from the given statements.</p>
+    
+    <form id="examForm">
+        <div class="question-container">
+            <p class="question">1) A rise in global temperatures due to climate change is leading to more frequent and severe natural disasters, such as floods, hurricanes, and wildfires.</p>
+            <div class="answer"><input type="radio" name="q1" value="A"> A) Climate change is the primary cause of the increasing frequency of natural disasters around the world.</div>
+            <div class="answer"><input type="radio" name="q1" value="B"> B) Natural disasters are increasing in frequency and severity, but they are unrelated to global temperature rise.</div>
+            <div class="answer"><input type="radio" name="q1" value="C"> C) Human activities that contribute to global warming are directly linked to the increase in natural disasters.</div>
+            <div class="answer"><input type="radio" name="q1" value="D"> D) Global warming has no impact on the frequency or intensity of natural disasters.</div>
+            <div class="answer"><input type="radio" name="q1" value="E"> E) None of the above.</div>
+        </div>
+
+        <div class="question-container">
+            <p class="question">2) If they study hard and continuously, then they can score good marks.</p>
+            <div class="answer"><input type="radio" name="q2" value="A"> A) Studying hard and continuously guarantees that they will always score good marks.</div>
+            <div class="answer"><input type="radio" name="q2" value="B"> B) Scoring good marks is impossible without studying hard.</div>
+            <div class="answer"><input type="radio" name="q2" value="C"> C) Hard work and continuous study will help them score good marks, but it's not a certainty.</div>
+            <div class="answer"><input type="radio" name="q2" value="D"> D) Studying hard and continuously may sometimes result in poor marks.</div>
+            <div class="answer"><input type="radio" name="q2" value="E"> E) They can score good marks without studying hard or continuously.</div>
+        </div>
+
+        <div class="question-container">
+            <p class="question">3) She will achieve success if she works hard.</p>
+            <div class="answer"><input type="radio" name="q3" value="A"> A) Working hard is how she will attain success.</div>
+            <div class="answer"><input type="radio" name="q3" value="B"> B) Even if she does not work hard, she will achieve success.</div>
+            <div class="answer"><input type="radio" name="q3" value="C"> C) She will achieve success only if she works hard and not through any other means.</div>
+            <div class="answer"><input type="radio" name="q3" value="D"> D) Working hard will guarantee her success, no matter what.</div>
+            <div class="answer"><input type="radio" name="q3" value="E"> E) Success is impossible without working hard.</div>
+        </div>
+
+        <div class="question-container">
+            <p class="question">4) Iron fortified salt could reduce anemia.</p>
+            <div class="answer"><input type="radio" name="q4" value="A"> A) A new process enables ordinary table salt to be fortified with iron.</div>
+            <div class="answer"><input type="radio" name="q4" value="B"> B) This advance could help reduce the high incidence of anemia in the world's population due to a deficiency of iron in the diet.</div>
+            <div class="answer"><input type="radio" name="q4" value="C"> C) Salt is used as a preservative for food and a flavor enhancer all over the globe, and</div>
+            <div class="answer"><input type="radio" name="q4" value="D"> D) People consume salt in quantities that would provide iron in significant amounts.</div>
+            <div class="answer"><input type="radio" name="q4" value="E"> E) None of the above.</div>
+        </div>
+
+        <div class="question-container">
+            <p class="question">5) Jade plant needs little water, and it has thick leaves.</p>
+            <div class="answer"><input type="radio" name="q5" value="A"> A) All plants having thick leaves need little water.</div>
+            <div class="answer"><input type="radio" name="q5" value="B"> B) Only jade plants can grow in places with little water.</div>
+            <div class="answer"><input type="radio" name="q5" value="C"> C) The jade plant needs more water than most other plants.</div>
+            <div class="answer"><input type="radio" name="q5" value="D"> D) Plants with thick leaves will always survive without water.</div>
+            <div class="answer"><input type="radio" name="q5" value="E"> E) Jade plants may grow in places where water is not abundant.</div>
+        </div>
+
+        <button type="button" class="submit-btn" onclick="checkAnswers()">Submit</button>
+    </form>
+
+    <div id="score"></div>
+
+    <script>
+        const correctAnswers = {
+            q1: "C",
+            q2: "C",
+            q3: "A",
+            q4: "B",
+            q5: "E"
+        };
+
+        function checkAnswers() {
+            const form = document.getElementById("examForm");
+            let score = 0;
+
+            for (let i = 1; i <= 5; i++) {
+                const question = `q${i}`;
+                const selectedAnswer = form.querySelector(`input[name="${question}"]:checked`);
+
+                const answers = form.querySelectorAll(`input[name="${question}"]`);
+
+                answers.forEach(answer => {
+                    if (answer.value === correctAnswers[question] && answer.checked) {
+                        answer.parentElement.classList.add("correct");
+                        score++;
+                    } else if (answer.checked) {
+                        answer.parentElement.classList.add("incorrect");
+                    } else {
+                        answer.parentElement.classList.remove("correct", "incorrect");
+                    }
+                });
+            }
+
+            const scoreElement = document.getElementById("score");
+            scoreElement.textContent = `Your score: ${score} out of 5`;
+        }
+    </script>
+</body>
+</html>
