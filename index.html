@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Civil Service Exam Practice Game</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 20px; }
+h1, h2 { color: #2c3e50; }
+.question { margin-bottom: 20px; }
+.answers { list-style-type: none; padding: 0; }
+.answers li { margin: 5px 0; }
+button { padding: 10px 20px; margin-top: 20px; background: #3498db; color: white; border: none; cursor: pointer; }
+button:hover { background: #2980b9; }
+.result { margin-top: 30px; padding: 15px; border-top: 2px solid #ccc; }
+.correct { color: green; }
+.incorrect { color: red; }
+.rationalization { margin: 10px 0; font-size: 0.95em; color: #333; }
+</style>
+</head>
+<body>
+
+<h1>CIVIL SERVICE EXAM PRACTICE TEST</h1>
+<h3>CREATED BY: CSE LEARNING ESSENTIALS</h3>
+<h2>SECTION 2: ANALYTICAL ABILITY — DRAWING CONCLUSIONS</h2>
+<p><strong>Passing Score: 4/5</strong></p>
+<p><em>Direction:</em> Each item in this section consists of statements followed by several possible conclusions. Determine the best conclusion that can be logically made from the given statements.</p>
+
+<form id="quiz-form">
+
+<div class="question">
+<p><strong>1.</strong> <em>STATEMENT:</em> He can join the team if he passes the tryouts.</p>
+<ul class="answers">
+<li><input type="radio" name="q1" value="A"> A. Passing the tryouts is what allows him to join the team.</li>
+<li><input type="radio" name="q1" value="B"> B. Even if he fails the tryouts, he can still join the team.</li>
+<li><input type="radio" name="q1" value="C"> C. The only way to join the team is to pass the tryouts and nothing else.</li>
+<li><input type="radio" name="q1" value="D"> D. Passing the tryouts guarantees that he will succeed in the team.</li>
+<li><input type="radio" name="q1" value="E"> E. Without passing the tryouts, joining the team is impossible.</li>
+</ul>
+</div>
+
+<div class="question">
+<p><strong>2.</strong> <em>STATEMENT:</em> Iron fortified salt could reduce anemia.</p>
+<ul class="answers">
+<li><input type="radio" name="q2" value="A"> A. A new process enables ordinary table salt to be fortified with iron.</li>
+<li><input type="radio" name="q2" value="B"> B. This advance could help reduce the high incidence of anemia in the world's population due to a deficiency of iron in the diet.</li>
+<li><input type="radio" name="q2" value="C"> C. Salt is used as a preservative for food and a flavor enhancer all over the globe.</li>
+<li><input type="radio" name="q2" value="D"> D. People consume salt in quantities that would provide iron in significant amounts.</li>
+<li><input type="radio" name="q2" value="E"> E. None of the above</li>
+</ul>
+</div>
+
+<div class="question">
+<p><strong>3.</strong> <em>STATEMENTS:</em> Global temperatures have been rising steadily over the past decades. Deforestation contributes to the rise of global temperatures.</p>
+<ul class="answers">
+<li><input type="radio" name="q3" value="A"> A. Reforestation is the only solution to stop global warming.</li>
+<li><input type="radio" name="q3" value="B"> B. Global warming is entirely caused by human activities like deforestation.</li>
+<li><input type="radio" name="q3" value="C"> C. If deforestation continues, global temperatures may keep rising.</li>
+<li><input type="radio" name="q3" value="D"> D. Climate change affects only areas where forests are being cut down.</li>
+<li><input type="radio" name="q3" value="E"> E. The rate of deforestation determines the exact degree of temperature rise.</li>
+</ul>
+</div>
+
+<div class="question">
+<p><strong>4.</strong> <em>STATEMENT:</em> Studies show that employees who take regular breaks are more productive than those who work continuously without breaks.</p>
+<ul class="answers">
+<li><input type="radio" name="q4" value="A"> A. Productivity depends on taking breaks.</li>
+<li><input type="radio" name="q4" value="B"> B. Employees who work without breaks are always unproductive.</li>
+<li><input type="radio" name="q4" value="C"> C. Taking regular breaks can contribute to higher productivity.</li>
+<li><input type="radio" name="q4" value="D"> D. Employees who take longer breaks work better than those who take shorter breaks.</li>
+<li><input type="radio" name="q4" value="E"> E. Productivity and working hours are unrelated.</li>
+</ul>
+</div>
+
+<div class="question">
+<p><strong>5.</strong> <em>STATEMENT:</em> A recent study found that more commuters use buses than trains in the city.</p>
+<ul class="answers">
+<li><input type="radio" name="q5" value="A"> A. No one uses trains anymore in the city.</li>
+<li><input type="radio" name="q5" value="B"> B. Fewer commuters use trains than buses in the city.</li>
+<li><input type="radio" name="q5" value="C"> C. Twice as many commuters use buses compared to trains.</li>
+<li><input type="radio" name="q5" value="D"> D. Almost all commuters in the city prefer buses over trains.</li>
+<li><input type="radio" name="q5" value="E"> E. The number of train commuters is equal to the number of bus commuters.</li>
+</ul>
+</div>
+
+<button type="button" onclick="checkAnswers()">Submit Answers</button>
+</form>
+
+<div class="result" id="result"></div>
+
+<div class="advertisement">
+<h3>✨ Ready to Ace the Exam? ✨</h3>
+<p>Practice more with <strong>CSE Learning Essentials</strong> reviewers, mock tests, and video tutorials! 📘</p>
+<p>💬 Message us on <a href="https://www.facebook.com/cselearningessentials" target="_blank">Facebook</a> or watch free tips at <a href="https://www.youtube.com/@cselearningessentialsph2023" target="_blank">YouTube</a>.</p>
+</div>
+
+<script>
+function checkAnswers() {
+  const answers = { q1: "A", q2: "B", q3: "C", q4: "C", q5: "B" };
+  const rationalizations = {
+    q1: "A ✔️ — correct and matches the meaning. B ❌ — contradicts the condition. C ❌ — adds “and nothing else,” which the statement does not claim. D ❌ — talks about “succeeding in the team,” which is unrelated. E ❌ — stronger than the original, which only says passing enables joining, not that it’s the only way.",
+    q2: "B ✔️ — This is directly aligned with the statement. A ❌ — This may be true, but it is not stated or implied in the statement. C ❌ — Irrelevant to reducing anemia. D ❌ — This is speculation beyond the given statement. E ❌ — Incorrect, since B is a valid conclusion.",
+    q3: "C ✅ This is a logical inference: deforestation contributes to rising temperatures, so continuing deforestation may lead to further rises. A ❌ Not stated nor implied. B ❌ Too strong. D ❌ Out of scope. E ❌ Too strong and specific.",
+    q4: "C ✅ Logical. The statement shows a positive link between breaks and productivity, making this a reasonable conclusion. A ❌ Too strong. B ❌ Too extreme. D ❌ Not stated. E ❌ Out of scope.",
+    q5: "B ✅ Logical. If more use buses, then fewer use trains. A ❌ Too extreme. C ❌ Assumed quantity. D ❌ Overgeneralization. E ❌ Contradicts."
+  };
+
+  let score = 0;
+  let output = "<h2>Results:</h2><ol>";
+
+  for (let q = 1; q <= 5; q++) {
+    const selected = document.querySelector(`input[name="q${q}"]:checked`);
+    if (!selected) {
+      output += `<li class='incorrect'>Question ${q}: No answer selected.</li>`;
+      continue;
+    }
+
+    if (selected.value === answers[`q${q}`]) {
+      score++;
+      output += `<li class='correct'>Question ${q}: Correct ✅<div class="rationalization">${rationalizations[`q${q}`]}</div></li>`;
+    } else {
+      output += `<li class='incorrect'>Question ${q}: Incorrect ❌ (Correct: ${answers[`q${q}`]})<div class="rationalization">${rationalizations[`q${q}`]}</div></li>`;
+    }
+  }
+
+  output += "</ol>";
+  output += `<h3>Final Score: ${score}/5</h3>`;
+  if (score >= 4) {
+    output += `<p class='correct'>🎉 Congratulations! You passed!</p>`;
+  } else {
+    output += `<p class='incorrect'>😔 You did not reach the passing score. Keep practicing!</p>`;
+  }
+
+  document.getElementById("result").innerHTML = output;
+}
+</script>
+
+</body>
+</html>
